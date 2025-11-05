@@ -4,6 +4,7 @@ import Select from 'react-select'
 import { useState } from 'react'
 
 
+
 // Estilos/configs para la barra de búsqueda
 const customStyles = {
     dropdownIndicator: () => ({
@@ -44,14 +45,21 @@ function SearchBarAuto ({characters, handleCharactersTried, handleCompareResults
 
     const compareCharacters = async (characterSelected) => {
 
+        const characterData = {
+            gender: characterSelected.gender,
+            time: characterSelected.time,
+            role: characterSelected.role
+        };
+
         try {
-            const response = await fetch("http://localhost:4001/characterOfTheDay", {
+            const response = await fetch("http://localhost:3001/characters/character-of-the-day", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(characterSelected)
+                body: JSON.stringify(characterData)
             });
+            console.log(JSON.stringify(characterData))
             const result = await response.json();
             handleCompareResults(result);
         } catch (error) {
