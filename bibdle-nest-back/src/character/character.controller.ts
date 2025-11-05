@@ -12,9 +12,6 @@ export class CharacterController {
   constructor(private characterService: CharacterService) {}
 
   @Post('character-of-the-day')
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(Role.ADMIN, Role.USER)
-  @ApiBearerAuth('JWT-auth')
   compareCharacter(@Body() characterOfPlayer: CompareCharacterDto) {
     return this.characterService.compareCharacter(characterOfPlayer);
   }

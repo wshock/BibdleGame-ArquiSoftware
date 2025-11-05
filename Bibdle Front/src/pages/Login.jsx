@@ -1,27 +1,30 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import '../styles/Login.css';
 
 function Login() {
+  const { login } = useContext(AuthContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    // Validación simple (puedes conectarlo a tu backend después)
     if (username.trim() === '' || password.trim() === '') {
       setError('Completa todos los campos');
       return;
     }
 
-    // Simulación de login exitoso
-    localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('username', username);
-    navigate('/'); 
+    try {
+      await login(username, password); // 👈 AQUÍ llamamos al backend real
+      navigate('/');
+    } catch {
+      setError('Usuario o contraseña incorrectos');
+    } 
   };
 
   return (

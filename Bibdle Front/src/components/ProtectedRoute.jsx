@@ -1,9 +1,11 @@
-import { Navigate } from 'react-router-dom';
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 function ProtectedRoute({ children }) {
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const { isLogged } = useContext(AuthContext);
 
-  if (!isLoggedIn) {
+  if (!isLogged) {
     return <Navigate to="/login" replace />;
   }
 

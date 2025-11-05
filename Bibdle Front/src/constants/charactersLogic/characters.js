@@ -1,40 +1,67 @@
 const characters = [
   {
-    label:'Adán', 
-    name: 'Adán', 
-    gender: 'Masculino', 
-    time: 'Antiguo Testamento', 
-    role: ['Persona del común'], 
-    hint: 'Hombre que no tuvo suegra' 
+    "name": "Adán",
+    "label": "Adán",
+    "gender": "Masculino",
+    "time": "Antiguo Testamento",
+    "role": ["Persona del común"]
   },
-  
   {
-    label:'Eva', 
-    name: 'Eva', 
-    gender: 'Femenino', 
-    time: 'Antiguo Testamento', 
-    role: ['Persona del común'], 
-    hint: 'Un fruto cambió el rumbo de su vida' 
+    "name": "Eva",
+    "label": "Eva",
+    "gender": "Femenino",
+    "time": "Antiguo Testamento",
+    "role": ["Persona del común"]
   },
-
   {
-    label:'Noé', 
-    name: 'Noé', 
-    gender: 'Masculino', 
-    time: 'Antiguo Testamento', 
-    role: ['Profeta/Profetisa'], 
-    hint: 'Dios le encomendó una construcción' 
+    "name": "Noé",
+    "label": "Noé",
+    "gender": "Masculino",
+    "time": "Antiguo Testamento",
+    "role": ["Profeta/Profetisa"]
   },
-
   {
-    label:'Moisés', 
-    name: 'Moisés', 
-    gender: 'Masculino', 
-    time: 'Antiguo Testamento', 
-    role: ['Lider', 'Profeta/Profetisa', 'Escritor'], 
-    hint: 'Conoció a su esposa en un pozo de Madiam' 
+    "name": "Abraham",
+    "label": "Abraham",
+    "gender": "Masculino",
+    "time": "Antiguo Testamento",
+    "role": ["Patriarca/Matriarca"]
+  },
+  {
+    "name": "José",
+    "label": "José",
+    "gender": "Masculino",
+    "time": "Antiguo Testamento",
+    "role": ["Gobernador", "Siervo"]
+  },
+  {
+    "name": "Moisés",
+    "label": "Moisés",
+    "gender": "Masculino",
+    "time": "Antiguo Testamento",
+    "role": ["Líder", "Profeta/Profetisa", "Legislador", "Escritor"]
+  },
+  {
+    "name": "Josué",
+    "label": "Josué",
+    "gender": "Masculino",
+    "time": "Antiguo Testamento",
+    "role": ["Líder", "Guerrero"]
+  },
+  {
+    "name": "David",
+    "label": "David",
+    "gender": "Masculino",
+    "time": "Antiguo Testamento",
+    "role": ["Rey/Reina", "Guerrero", "Músico", "Profeta/Profetisa", "Escritor"]
+  },
+  {
+    "name": "Salomón",
+    "label": "Salomón",
+    "gender": "Masculino",
+    "time": "Antiguo Testamento",
+    "role": ["Rey/Reina", "Escritor"]
   }
-
   
 ]
 
