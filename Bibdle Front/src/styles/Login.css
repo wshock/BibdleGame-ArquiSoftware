@@ -1,5 +1,5 @@
 .login-container {
-  margin-top: 10px;
+  margin-top: 50px;
   height: 530px;
   width: 30%;
   display: flex;
@@ -88,4 +88,32 @@
 
 .login-button:hover {
   background-color: #6b4f2a;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #5e4f38;
+}
+
+.register-link a {
+  color: #826033;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+  color: #6b4f2a;
+  text-decoration: underline;
+}
+
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+  margin: -10px 10px -20px 5px;
 }

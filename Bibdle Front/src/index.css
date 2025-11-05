@@ -16,11 +16,15 @@ body {
     background-color: rgb(58, 42, 21);
     margin: 0;
     padding: 0;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     min-width: 320px;
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 :root {

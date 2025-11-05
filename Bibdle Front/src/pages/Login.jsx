@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../styles/Login.css';
 
 function Login() {
@@ -28,7 +28,6 @@ function Login() {
     <div className="login-container">
       <div className="login-card">
         <h1 className="login-title">BibDle</h1>
-        <h2 className="login-subtitle">Iniciar Sesión</h2>
 
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
@@ -61,6 +60,10 @@ function Login() {
             Iniciar Sesión
           </button>
         </form>
+
+        <p className="register-link">
+          ¿No tienes cuenta? <Link to="/register">Regístrate</Link>
+        </p>
       </div>
     </div>
   );
