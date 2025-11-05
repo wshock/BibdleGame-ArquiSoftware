@@ -14,14 +14,15 @@ function PhraseGame () {
         // Obtener la frase del día desde el backend
         const fetchPhraseOfTheDay = async () => {
             try {
-                const response = await fetch("http://localhost:4001/phraseOfTheDay", {
+                const response = await fetch("http://localhost:3001/characters/clue", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
                     }
                 });
                 const result = await response.json();
-                setPhraseOfTheDay(result.phrase || result.hint);
+                console.log(result);
+                setPhraseOfTheDay(result.clue);
                 setCorrectCharacter(result.name);
             } catch (error) {
                 console.error("Error al obtener la frase del día: " + error)
@@ -59,7 +60,7 @@ function PhraseGame () {
                     marginLeft: 'auto',
                     marginRight: 'auto'
                 }}>
-                    "{phraseOfTheDay}"
+                    &quot;{phraseOfTheDay}&quot;
                 </div>
             )}
 

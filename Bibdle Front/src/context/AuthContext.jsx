@@ -40,13 +40,30 @@ export function AuthProvider({ children }) {
     });
   };
 
+  const register = async (username, email, password) => {
+    const res = await fetch("http://localhost:3001/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, names: username, password }),
+    });
+
+    if (!res.ok) throw new Error("Error al registrarse");
+
+    const data = await res.json();
+    const token = data.access_token;
+
+    localStorage.setItem("token", token);
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    setUser({ userId: payload.userId, role: payload.role, token });
+  };
+
   const logout = () => {
     localStorage.removeItem("token");
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isLogged: !!user }}>
+    <AuthContext.Provider value={{ user, login, register, logout, isLogged: !!user }}>
       {children}
     </AuthContext.Provider>
   );

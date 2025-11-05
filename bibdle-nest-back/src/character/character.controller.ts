@@ -1,4 +1,4 @@
-import { Controller, Post, Body, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get, Req } from '@nestjs/common';
 import { CharacterService } from './character.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
@@ -14,5 +14,16 @@ export class CharacterController {
   @Post('character-of-the-day')
   compareCharacter(@Body() characterOfPlayer: CompareCharacterDto) {
     return this.characterService.compareCharacter(characterOfPlayer);
+  }
+
+  @Get('clue')
+  getClue() {
+    const jeje = this.characterService.getClue();
+    return jeje;
+  }
+
+  @Post('guess')
+  guess(@Body() body: any) {
+    return this.characterService.verifyGuess(body.guess);
   }
 }

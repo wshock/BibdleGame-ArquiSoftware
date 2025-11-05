@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import '../styles/Login.css';
 
 function Register() {
+  const { register } = useContext(AuthContext);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,36 +34,10 @@ function Register() {
     }
 
     try {
-      // Aquí conectas con tu backend
-      const response = await fetch('http://tu-backend-url/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username,
-          email,
-          password,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setSuccess('¡Registro exitoso! Redirigiendo...');
-        setTimeout(() => {
-          navigate('/login');
-        }, 1500);
-      } else {
-        setError(data.message || 'Error al registrarse');
-      }
-    } catch (err) {
-      // Por ahora, simular un registro exitoso si no hay backend
-      console.log('Registro:', { username, email, password });
-      setSuccess('¡Registro exitoso! Redirigiendo...');
-      setTimeout(() => {
-        navigate('/login');
-      }, 1500);
+      await register(username, email, password); // ⬅️ usamos el register del contexto
+      navigate('/'); // ⬅️ entra directo a la app
+    } catch {
+      setError('No se pudo registrar, intenta otro correo o usuario');
     }
   };
 

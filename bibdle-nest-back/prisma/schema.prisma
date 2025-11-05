@@ -24,6 +24,7 @@ model Character {
   gender String
   time   String
   role   String[]
+  phrase String?
   DailyCharacter DailyCharacter[]
 }
 
@@ -31,6 +32,7 @@ model DailyCharacter {
   id          Int       @id @default(autoincrement())
   date        DateTime  @unique
   characterId Int
+  mode        String?
   character   Character @relation(fields: [characterId], references: [id])
 }
 
