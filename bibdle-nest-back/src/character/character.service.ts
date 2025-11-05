@@ -14,8 +14,8 @@ export class CharacterService {
       today.getDate(),
     );
 
-    let daily = await this.prisma.dailyCharacter.findUnique({
-      where: { date: dateOnly },
+    let daily = await this.prisma.dailyCharacter.findFirst({
+      where: { date: dateOnly, mode: 'NORMAL' },
       include: { character: true },
     });
 
@@ -34,6 +34,7 @@ export class CharacterService {
       data: {
         date: dateOnly,
         characterId: character[0].id,
+        mode: 'NORMAL',
       },
       include: { character: true },
     });
