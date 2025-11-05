@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Character {
+  id     Int      @id @default(autoincrement())
+  name   String
+  gender String
+  time   String
+  role   String[]
+  DailyCharacter DailyCharacter[]
+}
+
+model DailyCharacter {
+  id          Int       @id @default(autoincrement())
+  date        DateTime  @unique
+  characterId Int
+  character   Character @relation(fields: [characterId], references: [id])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
